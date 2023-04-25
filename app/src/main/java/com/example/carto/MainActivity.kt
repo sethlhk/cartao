@@ -1,9 +1,11 @@
 package com.example.carto
 
+import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -42,6 +44,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color(39, 64, 139)
                 ) {
+                    ImagemDeFundo()
                     Start()
                     Board()
                 }
@@ -51,6 +54,22 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun ImagemDeFundo(){
+
+    val imagem = painterResource(id = R.drawable.cat)
+    Image(
+        painter = imagem,
+        contentDescription =null,
+        contentScale =  ContentScale.Crop
+    )
+
+}
+
+
+
+
+
+@Composable
 fun Start() {
     Column(
         verticalArrangement = Arrangement.Top,
@@ -58,7 +77,7 @@ fun Start() {
         modifier = Modifier
             .padding(10.dp)
     ) {
-        val photo = painterResource(id = R.drawable.image_1)
+        val photo = painterResource(id = R.drawable.luluh)
 
         Image(
             painter = photo,
@@ -67,6 +86,7 @@ fun Start() {
             modifier = Modifier
                 .size(200.dp)
                 .clip(CircleShape)
+
         )
 
         Text(
@@ -75,17 +95,17 @@ fun Start() {
                 .padding(5.dp),
 
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            fontSize = 15.sp
+            color = Color(205 ,104 ,137),
+            fontSize = 25.sp
         )
 
         Text(
             text = stringResource(R.string.meu_cargo),
             modifier = Modifier,
             fontSize = 30.sp,
-            fontFamily = FontFamily.Monospace,
+            fontFamily = FontFamily.Default,
             fontWeight = FontWeight.Bold,
-            color = Color(104, 34, 139)
+            color = Color(205 ,104 ,137)
 
 
         )
@@ -101,17 +121,17 @@ fun Board(){
 
 
         Contact(
-            painter = painterResource(id = R.drawable.email_1),
+            painter = painterResource(id = R.drawable.a801791f94c5074e414f835fefa0b297),
             text = stringResource(R.string.email_12)
 
         )
         Contact(
-            painter = painterResource(id = R.drawable.icone_tel),
+            painter = painterResource(id = R.drawable.mymelod),
             text = stringResource(R.string.telefone)
         )
 
         Contact(
-            painter = painterResource(id = R.drawable.inst_1),
+            painter = painterResource(id = R.drawable.mymelody),
             text = stringResource(R.string.insta)
         )
     }
@@ -123,7 +143,7 @@ fun Board(){
 fun Contact(painter: Painter, text: String){
 
     Divider(
-        color = Color.Transparent,
+        color = Color(120, 64, 119, 47),
         modifier = Modifier
             .fillMaxWidth()
             .height(1.dp)
@@ -137,7 +157,8 @@ fun Contact(painter: Painter, text: String){
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .size(40.dp)
+                .size(60.dp)
+                .clip(CircleShape)
 
 
 
@@ -146,12 +167,13 @@ fun Contact(painter: Painter, text: String){
 
             Text(
                 text = text,
-                color = Color.Black,
-                textAlign = TextAlign.Center,
+                color = Color(120, 64, 119, 120),
+                textAlign = TextAlign.Left,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 10.dp, bottom = 20.dp),
-                fontSize = 15.sp
+                fontSize = 20.sp
+
             )
 
     }
